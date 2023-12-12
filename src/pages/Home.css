@@ -1,0 +1,62 @@
+.Home-Main-Container {
+    height: 100vh;
+    width: 100vw;   
+    background-image: linear-gradient(to right, #D4145A , #FBB03B);
+    display: flex;
+    flex-direction: row;
+}
+
+.Home-Left-Container {
+    height: 100%;
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-sizing:border-box ;
+    padding-left: 200px;
+}
+
+.Home-Right-Container {
+    height: 100%;
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    padding-left: 20%;
+    padding-right: 5%;
+    background-image: url("../images/right_background.png");
+    background-size: cover;
+    background-position: right;
+    background-repeat: no-repeat;
+}
+
+.Home-Left-Logo {
+    display: flex;
+    aspect-ratio: 1;
+    height: 39%;
+    background-image: url("../images/logo_white.png");
+    background-position: center;
+    background-size: contain;
+    padding: 0;
+    margin: 0;
+}
+
+.Home-Left-Title {
+    text-align: center;
+    font-size: 128px;
+    padding: 0;
+    margin: 0;
+    font-weight: 300;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color: rgb(250, 225, 211);
+}
+
+h2 {
+    font-size: 25px;
+    font-weight: 300;
+    margin: 0;
+    padding: 0;
+}

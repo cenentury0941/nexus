@@ -1,0 +1,86 @@
+.Text-White {
+    color: white;
+}
+
+.Text-Orange {
+    color: #D4145A;
+}
+
+.Button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition-duration: 0.1s;
+    border-radius: 300px;
+    margin-top: 25px;
+    user-select: none;
+}
+
+.Button:active {
+    scale: 0.90 !important;
+}
+
+.Button-Light {
+    border: 2px solid #D4145A;
+    background-color: white;
+    color: #D4145A;
+}
+
+.Button-Light:hover {
+    scale: 0.97;
+}
+
+
+.Button-Dark:hover {
+    scale: 0.97;
+}
+
+.Button-Dark {
+    border: 2px solid #D4145A;
+    background-color: #D4145A;
+    color: white;
+}
+
+.Width-50Pc {
+    width: 50%;
+}
+
+.Width-75Pc {
+    width: 75%;
+}
+
+.Width-60Pc {
+    width: 60%;
+}
+
+.Width-100Pc {
+    width: 100%;
+}
+
+.Height-10pc {
+    height: 10%;
+}
+
+.Height-5pc {
+    height: 5%;
+}
+
+.Height-7pc {
+    height: 7%;
+}
+
+.Font-Size-150pc {
+    font-size: 150%;
+}
+
+.Font-Size-125pc {
+    font-size: 125%;
+}
+
+.Spacer-Vertical-10vh {
+    height: 10vh;
+}
+
+.Spacer-Vertical-5vh {
+    height: 5vh;
+}
