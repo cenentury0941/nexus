@@ -1,0 +1,11 @@
+.Title {
+    width: 100%;
+    display: flex;
+    align-items: start;
+    box-sizing: border-box;
+    padding-left: 25px;
+    padding-top: 125px;
+    font-size: 64px;
+    color: wheat;
+    font-weight: 200;
+}

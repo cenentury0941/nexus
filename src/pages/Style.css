@@ -21,7 +21,7 @@
 }
 
 .Button-Light {
-    border: 2px solid #D4145A;
+    border: 1px solid #D4145A;
     background-color: white;
     color: #D4145A;
 }
@@ -36,7 +36,7 @@
 }
 
 .Button-Dark {
-    border: 2px solid #D4145A;
+    border: 1px solid #D4145A;
     background-color: #D4145A;
     color: white;
 }
@@ -77,10 +77,93 @@
     font-size: 125%;
 }
 
+.Font-Size-100pc {
+    font-size: 100%;
+}
+
 .Spacer-Vertical-10vh {
     height: 10vh;
 }
 
 .Spacer-Vertical-5vh {
     height: 5vh;
+}
+
+.Spacer-Vertical-3vh {
+    height: 3vh;
+}
+
+.Horizontal-Divider-1px {
+    display: flex;
+    width: 75%;
+    height: 1px;
+    margin: 5px;
+    margin-bottom: 25px;
+    margin-top: 15px;
+    background-color: #d35885;
+    border-radius: 1000px;
+}
+
+.Margin-0px {
+    margin: 0px;
+}
+
+.Margin-25px {
+    margin: 25px;
+}
+
+.Margin-Bottom-25px {
+    margin-bottom: 15px;
+}
+
+.Padding-All-25px {
+    padding: 25px;
+}
+
+.Padding-Horizontal-25px {
+    padding-left: 25px;
+    padding-right: 25px;
+}
+
+.Seperator {
+    display: flex;
+    width: 100%;
+    height: 10px;
+    margin-bottom: auto;
+    flex-shrink: 0;
+}
+
+.Seperator-150px {
+    display: flex;
+    width: 100%;
+    height: 150px;
+    margin-bottom: auto;
+    flex-shrink: 0;
+}
+
+.Seperator-50px {
+    display: flex;
+    width: 100%;
+    height: 50px;
+    margin-bottom: auto;
+    flex-shrink: 0;
+}
+
+.Seperator-70px {
+    display: flex;
+    width: 100%;
+    height: 70px;
+    margin-bottom: auto;
+    flex-shrink: 0;
+}
+
+.AppBar-Logo {
+    display: flex;
+    height: 5vh;
+    aspect-ratio: 1;
+    background-image: url("../images/logo_orange.png");
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    margin: 10px;
 }

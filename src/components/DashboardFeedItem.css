@@ -1,0 +1,84 @@
+.Dashboard-Feed-Item {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+    width: 95%;
+    height: fit-content;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px gray;
+    background-color: white; 
+    flex-shrink: 0;  
+}
+
+.Dashboard-Feed-Row {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    box-sizing: border-box;
+    height: fit-content;
+}
+
+.Dashboard-Feed-Profile {
+    display: flex;
+    height: 5vh;
+    aspect-ratio: 1;
+    border-radius: 1000px;
+    box-shadow: 0px 0px 3px rgb(193, 193, 193);
+    background-image: url("../images/profile.png");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.Dashboard-Feed-UserName {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 5vh;
+    margin-right: auto;
+    margin-left: 10px;
+    font-size: 120%;
+    color: #D4145A;
+}
+
+.Dashboard-Feed-Date {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 5vh;
+    font-size: 120%;
+    color: #f39bbb;
+    font-weight: 300;
+}
+
+.Dashboard-Feed-Title {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: fit-content;
+    margin-right: auto;
+    margin-left: 10px;
+    margin-bottom: 10px;
+    font-size: 210%;
+    color: #D4145A;
+    font-weight: 300;
+}
+
+.Dashboard-Feed-Content {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    text-align: start;
+    height: fit-content;
+    margin-left: 30px;
+    margin-right: 50px;
+    font-size: 120%;
+    color: #d0195c;
+    font-weight: 500;
+}
+
+.Dashboard-Feed-Block {
+    margin: 0;
+    margin-bottom: 10px;
+}

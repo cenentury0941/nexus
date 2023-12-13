@@ -1,0 +1,14 @@
+.Login-Main-Container {
+    display: flex;
+    height: 100vh;
+    width: 100vw;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 25px;
+    background-image: linear-gradient(to right, #ffded2 , #ffefd5);
+}
+
+h2 {
+    color: #d53500;
+}

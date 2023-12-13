@@ -1,0 +1,92 @@
+.Dashboard-Main-Container {
+    display: flex;
+    height: 100vh;
+    width: 100vw;
+    background-image: linear-gradient(to right, #D4145A , #fb913b);
+}
+
+.Dashboard-SideBar {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: fixed;
+    left: 0;
+    height: 100%;
+    width: 17%;
+    background-color: white;
+    box-shadow: 0px 0px 10px black;
+    box-sizing: border-box;
+    padding-top: 12vh;
+}
+
+.Dashboard-SideBar-ProfilePic {
+    display: flex;
+    width: 60%;
+    aspect-ratio: 1;
+    border-radius: 1000px;
+    background-image: url("../images/profile.png");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    box-shadow: 0px 0px 5px gray;
+}
+
+.Dashboard-SideBar-Welcome {
+    display: flex;
+    width: 100%;
+    font-size: 120%;
+    font-weight: 400;
+    height: 2%;
+    color: #d57c9c;
+    align-items: center;
+    justify-content: center;
+}
+
+.Dashboard-SideBar-Connections {
+    display: flex;
+    width: 100%;
+    font-size: 100%;
+    font-weight: 400;
+    height: 2%;
+    color: #d299ae;
+    align-items: center;
+    justify-content: center;
+}
+
+.Dashboard-SideBar-Username {
+    display: flex;
+    width: 100%;
+    font-size: 200%;
+    font-weight: 600;
+    height: 7%;
+    color: #D4145A;
+    align-items: center;
+    justify-content: center;
+}
+
+.Dashboard-Feed-Container {
+    display: flex;
+    position: fixed;
+    right: 0px;
+    top: 7vh;
+    flex-direction: column;
+    width: 75%;
+    height: 100%;
+    overflow-y: scroll;
+    box-sizing: border-box;
+    padding-top: 25px;
+    padding-bottom: 25px;
+    padding-right: 25%;
+    align-items: center;
+    gap: 25px;
+}
+
+.Dashboard-Feed-Item {
+    display: flex;
+    height: 25%;
+    width: 95%;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px gray;
+    background-color: white; 
+    flex-shrink: 0;  
+}
