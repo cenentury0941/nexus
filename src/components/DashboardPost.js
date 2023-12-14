@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import "./DashboardPost.css";
 import TextField from '@mui/material/TextField';
 import IconButton from '@mui/material/IconButton';
@@ -8,13 +8,21 @@ import { postMessage } from "../firebase";
 
 function DashboardPost(){
 
+    const [ title , setTitle ] = useState("")
+    const [ content , setContent ] = useState("")
+
     const post = () => {
-        postMessage("Title1" , "Content Content Content" , "image url" , "email@email.com" , "uname" , "profile url" , "tag1,tag2,tag3")
+        postMessage(title , content , "image url" , "email@email.com" , "uname" , "profile url" , "tag1,tag2,tag3")
+        setTitle("")
+        setContent("")
     }
 
     return <div className="DashboardPost-Container">
         <p className="DashboardPost-Title">What's on your mind?</p>
-        <TextField fullWidth label="Post Title" id="fullWidth" color="warning" variant="outlined" sx={{ color:"#D4145A", border:"0px solid black" }}/>
+        <TextField fullWidth label="Post Title" id="fullWidth" color="warning" variant="outlined" sx={{ color:"#D4145A", border:"0px solid black" }}
+        value={title}
+        onChange={ (target) => {setTitle(target.currentTarget.value)} }
+        />
         <TextField
           id="standard-multiline-static"
           label="Post Content"
@@ -22,6 +30,8 @@ function DashboardPost(){
           rows={6}
           variant="outlined"
           color="warning"
+          value={content}
+          onChange={ (target) => {setContent(target.currentTarget.value)} }
         />
         <div className="DashboardPost-ButtonRow">
         <IconButton type="button" sx={{ p: '10px', scale:"1.39", m: '5px' }} aria-label="search" color="warning">

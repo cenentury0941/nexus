@@ -76,7 +76,7 @@ const messagesRef = ref(database, 'nexus/messages/');
 
 onValue(messagesRef, (snapshot) => {
   const data = snapshot.val();
-  messagesCallback(data)
+  messagesCallback(Object.entries(data).sort( function(a, b){return parseInt(b[0]) - parseInt(a[0])} ))
 });
 
-export { login , logout , postMessage }
+export { login , logout , postMessage , getMessages }

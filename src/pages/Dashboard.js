@@ -1,9 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 import ResponsiveAppBar from "../components/ResponsiveAppBar";
 import "./Dashboard.css";
 import "./Style.css";
-import { logout } from "../firebase";
+import { logout, getMessages } from "../firebase";
 import { useNavigate } from "react-router-dom";
 import SearchBox from "../components/SearchBox";
 import DashboardTitle from "../components/DashboardTitle";
@@ -24,6 +24,8 @@ const darkTheme = createTheme({
 function Dashboard(){
 
     const navigate = useNavigate();
+    const [ messages , setMessages ] = useState([])
+    getMessages(setMessages)
 
     return <div className="Dashboard-Main-Container">
       <div className="Dashboard-SideBar">
@@ -45,15 +47,12 @@ function Dashboard(){
         <DashboardTitle title="Your Feed" />
         <SearchBox />
         <DashboardPost />
-        <DashboardFeedItem />
-        <DashboardFeedItem />
-        <DashboardFeedItem />
-        <DashboardFeedItem />
-        <DashboardFeedItem />
-        <DashboardFeedItem />
-        <DashboardFeedItem />
-        <DashboardFeedItem />
-        <DashboardFeedItem />
+
+        {
+          messages.map( (item,index) => {
+            return <DashboardFeedItem data={item} index={index} />
+          } )
+        }
         <div className="Seperator-150px"/>
       </div>
 
