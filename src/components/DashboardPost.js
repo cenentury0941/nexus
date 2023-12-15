@@ -5,14 +5,39 @@ import IconButton from '@mui/material/IconButton';
 import SendIcon from '@mui/icons-material/Send';
 import CollectionsIcon from '@mui/icons-material/Collections';
 import { postMessage } from "../firebase";
+import Snackbar from '@mui/material/Snackbar';
+import MuiAlert from '@mui/material/Alert';
+
+const Alert = React.forwardRef(function Alert(props, ref) {
+    return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
+  });
 
 function DashboardPost(){
 
     const [ title , setTitle ] = useState("")
     const [ content , setContent ] = useState("")
+    const [open, setOpen] = React.useState(false);
+    
+    const handleClose = (event, reason) => {
+        if (reason === 'clickaway') {
+        return;
+        }
+        setOpen(false);
+    };
+
+    const handleError = () => {
+        setOpen(true);
+      };
 
     const post = () => {
-        postMessage(title , content , "image url" , "email@email.com" , "uname" , "profile url" , "tag1,tag2,tag3")
+
+        if( title === "" || content === "" )
+        {
+            handleError()
+            return
+        }
+
+        postMessage(title , content , "image url" , "email@email.com" , "username" , "profile url" , "tag1,tag2,tag3")
         setTitle("")
         setContent("")
     }
@@ -41,6 +66,11 @@ function DashboardPost(){
             <SendIcon />
         </IconButton>
         </div>
+        <Snackbar anchorOrigin={{ vertical: 'bottom', horizontal: 'center' }} open={open} autoHideDuration={6000} onClose={handleClose}>
+        <Alert onClose={handleClose} severity="error" sx={{ width: '100%' }}>
+          Title and Content can't be empty!
+        </Alert>
+      </Snackbar>
     </div>
 }
 

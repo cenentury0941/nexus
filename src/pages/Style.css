@@ -1,5 +1,5 @@
 .Text-White {
-    color: white;
+    color: white !important;
 }
 
 .Text-Orange {
@@ -141,6 +141,14 @@
     flex-shrink: 0;
 }
 
+.Seperator-25px {
+    display: flex;
+    width: 100%;
+    height: 25px;
+    margin-bottom: auto;
+    flex-shrink: 0;
+}
+
 .Seperator-50px {
     display: flex;
     width: 100%;
@@ -166,4 +174,13 @@
     background-position: center;
     background-repeat: no-repeat;
     margin: 10px;
+}
+
+.No-Background{
+    background-color: #0000 !important;
+    box-shadow: 0px 0px 0px #0000 !important;
+}
+
+.Font-Color-Brown {
+    color: #8b0c3a !important;
 }

@@ -23,6 +23,7 @@ const email = "hackathon-test@email.com"
 const password = "12345abcdef@"
 
 var messagesCallback = (data) => {console.log(data)}
+var localdata = []
 
 const auth = getAuth();
 
@@ -70,13 +71,19 @@ function postMessage(title, content, img, email, username, profilepic, tags){
 
 function getMessages(setMessages){
   messagesCallback = setMessages
+  setMessages(localdata)
+}
+
+function getMessagesByUsername(uname){
+  return localdata.filter( (item) => {return item[1].username === uname} )
 }
 
 const messagesRef = ref(database, 'nexus/messages/');
 
 onValue(messagesRef, (snapshot) => {
   const data = snapshot.val();
-  messagesCallback(Object.entries(data).sort( function(a, b){return parseInt(b[0]) - parseInt(a[0])} ))
+  localdata = Object.entries(data).sort( function(a, b){return parseInt(b[0]) - parseInt(a[0])} )
+  messagesCallback(localdata)
 });
 
-export { login , logout , postMessage , getMessages }
+export { login , logout , postMessage , getMessages , getMessagesByUsername }

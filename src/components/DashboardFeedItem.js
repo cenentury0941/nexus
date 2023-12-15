@@ -1,17 +1,30 @@
-import React from "react";
+import React, { useState } from "react";
 import "./DashboardFeedItem.css";
 import "../pages/Style.css";
+import { IconButton } from "@mui/material";
+import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
+import PodcastsIcon from '@mui/icons-material/Podcasts';
+import Diversity3Icon from '@mui/icons-material/Diversity3';
+import FavoriteIcon from '@mui/icons-material/Favorite';
+import { useNavigate } from "react-router-dom";
 
 function DashboardFeedItem(props){
+
+    const navigate = useNavigate()
+
+    const queryParameters = new URLSearchParams(window.location.search)
+    const username = queryParameters.get("uname")
 
     const index = props.index
     const data = props.data[1]
     const date = new Date(parseInt(data["id"]))
 
+    const [ like , setLike ] = useState(false)
+
     return <div className="Dashboard-Feed-Item">
         <div className="Dashboard-Feed-Row Padding-All-25px">
             <div className="Dashboard-Feed-Profile"/>
-            <div className="Dashboard-Feed-UserName">{data["username"]}</div>
+            <div className="Dashboard-Feed-UserName" onClick={ () => { username !== data["username"] && navigate("/posts?uname="+data["username"])} }>{data["username"]}</div>
             <div className="Dashboard-Feed-Date">{date.toDateString()}</div>
         </div>
         <div className="Horizontal-Divider-1px Margin-0px Margin-Bottom-25px"/>
@@ -23,9 +36,20 @@ function DashboardFeedItem(props){
                 { data["content"].split("\n").map( (item) => { return <p className="Dashboard-Feed-Block">{item}</p> } ) }
             </div>
         </div>
-        
         <div className="Horizontal-Divider-1px Margin-25px"/>
-        <div className="Seperator-70px"/>
+        <div className="DashboardFeed-ButtonRow">
+        <IconButton type="button" sx={{ p: '10px', scale:"1.39", m: '5px' }} aria-label="search" color="warning" onClick={ () => {setLike(!like)} }>
+            { like ? <FavoriteIcon /> : <FavoriteBorderIcon /> }
+        </IconButton>
+        <IconButton type="button" sx={{ p: '10px', scale:"1.39", m: '5px' }} aria-label="search" color="warning">
+            <PodcastsIcon />
+        </IconButton>
+        
+        <IconButton type="button" sx={{ p: '10px', scale:"1.39", m: '5px' }} aria-label="search" color="warning">
+            <Diversity3Icon />
+        </IconButton>
+        </div>
+        <div className="Seperator-25px"/>
     </div>
 }
 

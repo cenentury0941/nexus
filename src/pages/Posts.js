@@ -3,13 +3,12 @@ import { ThemeProvider, createTheme } from '@mui/material/styles';
 import ResponsiveAppBar from "../components/ResponsiveAppBar";
 import "./Dashboard.css";
 import "./Style.css";
-import { logout, getMessages } from "../firebase";
+import { logout, getMessages, getMessagesByUsername } from "../firebase";
 import { useNavigate } from "react-router-dom";
-import SearchBox from "../components/SearchBox";
-import DashboardTitle from "../components/DashboardTitle";
-import DashboardPost from "../components/DashboardPost";
 import DashboardFeedItem from "../components/DashboardFeedItem";
+import PostsTitle from "../components/PostsTitle";
 import DashboardSidebar from "../components/DashboardSidebar";
+import LoadingItems from "../components/LoadingItems";
 
 const darkTheme = createTheme({
   palette: {
@@ -22,22 +21,23 @@ const darkTheme = createTheme({
   },
 });
 
-function Dashboard(){
+function Posts(){
+    
+    const queryParameters = new URLSearchParams(window.location.search)
+    const username = queryParameters.get("uname")
 
     const navigate = useNavigate();
     const [ messages , setMessages ] = useState([])
     
-    useEffect( () => {getMessages(setMessages)} , [] )
+    useEffect( () => {setMessages(getMessagesByUsername(username))} , [] )
 
     return <div className="Dashboard-Main-Container">
       <DashboardSidebar />
 
       <div className="Dashboard-Feed-Container">
-        <DashboardTitle title="Your Feed" />
-        <SearchBox />
-        <DashboardPost />
-
+        <PostsTitle title= {username+"'s posts"} />
         {
+          messages.length === 0 ? <LoadingItems /> :
           messages.map( (item,index) => {
             return <DashboardFeedItem data={item} index={index} />
           } )
@@ -51,4 +51,4 @@ function Dashboard(){
     </div>
 }
 
-export default Dashboard
+export default Posts

@@ -12,6 +12,7 @@
     box-sizing: border-box;  
     flex-direction: column;
     gap: 10px;
+    user-select: none;
 }
 
 .DashboardPost-Title {
