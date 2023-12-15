@@ -38,4 +38,63 @@
     bottom: 1vh;
     border-radius: 10px;
     box-shadow: 0px 0px 10px gray;
+    animation-duration: 0.39s;
+    animation-timing-function: ease-in-out;
+    animation-fill-mode: both;
+    animation-iteration-count: 1;
+}
+
+.Assistant-Window-Show {
+    animation-name: show;
+}
+
+.Assistant-Window-Hide {
+    animation-name: hide;
+}
+
+.Assitant-Window-Close-Button {
+    display: flex;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    aspect-ratio: 1;
+    width: 1.5vw;
+    border-radius: 1000px;
+    background-image: url("../images/close.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    transition-duration: 0.1s;
+    animation-name: none;
+}
+
+.Assitant-Window-Close-Button:hover {
+    animation-name: rock;
+    animation-duration: 1.5s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+}
+
+.Assitant-Window-Close-Button:active {
+    scale: 0.75;
+}
+
+@keyframes rock {
+    0%  { transform: rotate(0deg); }
+    5%  { transform: rotate(15deg); }
+    15%  { transform: rotate(-15deg); }
+    25%  { transform: rotate(15deg); }
+    35%  { transform: rotate(-15deg); }
+    40%  { transform: rotate(0deg); }
+    100%  { transform: rotate(0deg); }
+}
+
+@keyframes show {
+    0%  { transform: translateX(40vw); opacity: 0; }
+    100%  { transform: translateX(0vw); opacity: 1; }
+}
+
+@keyframes hide {
+    0%  { transform: translateX(0vw); opacity: 1; }
+    100%  { transform: translateX(40vw); opacity: 0; }
 }
