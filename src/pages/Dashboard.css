@@ -70,13 +70,13 @@
     right: 0px;
     top: 7vh;
     flex-direction: column;
-    width: 75%;
+    width: 82vw;
     height: 100%;
     overflow-y: scroll;
     box-sizing: border-box;
     padding-top: 25px;
     padding-bottom: 25px;
-    padding-right: 25%;
+    padding-right: 32vw;
     align-items: center;
     gap: 25px;
 }
