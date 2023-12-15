@@ -6,6 +6,9 @@ import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import PodcastsIcon from '@mui/icons-material/Podcasts';
 import Diversity3Icon from '@mui/icons-material/Diversity3';
 import FavoriteIcon from '@mui/icons-material/Favorite';
+import SignalWifiStatusbarNullIcon from '@mui/icons-material/SignalWifiStatusbarNull';
+import SignalWifiStatusbar4BarIcon from '@mui/icons-material/SignalWifiStatusbar4Bar';
+
 import { useNavigate } from "react-router-dom";
 
 function DashboardFeedItem(props){
@@ -20,6 +23,7 @@ function DashboardFeedItem(props){
     const date = new Date(parseInt(data["id"]))
 
     const [ like , setLike ] = useState(false)
+    const [ amplify , setAmplify ] = useState(false)
 
     return <div className="Dashboard-Feed-Item">
         <div className="Dashboard-Feed-Row Padding-All-25px">
@@ -41,10 +45,9 @@ function DashboardFeedItem(props){
         <IconButton type="button" sx={{ p: '10px', scale:"1.39", m: '5px' }} aria-label="search" color="warning" onClick={ () => {setLike(!like)} }>
             { like ? <FavoriteIcon /> : <FavoriteBorderIcon /> }
         </IconButton>
-        <IconButton type="button" sx={{ p: '10px', scale:"1.39", m: '5px' }} aria-label="search" color="warning">
-            <PodcastsIcon />
+        <IconButton type="button" sx={{ p: '10px', scale:"1.39", m: '5px' }} aria-label="search" color="warning" onClick={ () => {setAmplify(!amplify)} }>
+            { amplify ? <SignalWifiStatusbar4BarIcon /> : <SignalWifiStatusbarNullIcon /> }
         </IconButton>
-        
         <IconButton type="button" sx={{ p: '10px', scale:"1.39", m: '5px' }} aria-label="search" color="warning">
             <Diversity3Icon />
         </IconButton>

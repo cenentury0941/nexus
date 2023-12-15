@@ -10,6 +10,7 @@ import DashboardTitle from "../components/DashboardTitle";
 import DashboardPost from "../components/DashboardPost";
 import DashboardFeedItem from "../components/DashboardFeedItem";
 import DashboardSidebar from "../components/DashboardSidebar";
+import AiAssistant from "../components/AiAssistant";
 
 const darkTheme = createTheme({
   palette: {
@@ -48,6 +49,8 @@ function Dashboard(){
       <ThemeProvider theme={darkTheme}>
         <ResponsiveAppBar />
       </ThemeProvider>
+
+      <AiAssistant />
     </div>
 }
 
