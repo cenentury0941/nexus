@@ -23,7 +23,7 @@ function DashboardFeedItem(props){
 
     return <div className="Dashboard-Feed-Item">
         <div className="Dashboard-Feed-Row Padding-All-25px">
-            <div className="Dashboard-Feed-Profile"/>
+            <div className="Dashboard-Feed-Profile" style={{ backgroundImage : ( data["profile_picture"] !== "profile url" ? "url('"+data["profile_picture"]+"')" : "url('https://firebasestorage.googleapis.com/v0/b/combined-hackathon-services.appspot.com/o/profile_none.png?alt=media&token=af9cfc1c-d027-4061-8c1b-53353e4709ce')") }}/>
             <div className="Dashboard-Feed-UserName" onClick={ () => { username !== data["username"] && navigate("/posts?uname="+data["username"])} }>{data["username"]}</div>
             <div className="Dashboard-Feed-Date">{date.toDateString()}</div>
         </div>

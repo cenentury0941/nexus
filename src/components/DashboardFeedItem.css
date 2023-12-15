@@ -83,12 +83,13 @@
     font-size: 1vw;
     color: #d0195c;
     font-weight: 500;
+    overflow-x: hidden;
 }
 
 .Dashboard-Feed-Block {
     margin: 0;
     margin-bottom: 5px;
-    word-break: break-all;
+    word-break: normal;
 }
 
 .DashboardFeed-ButtonRow {
