@@ -3,12 +3,13 @@ import { ThemeProvider, createTheme } from '@mui/material/styles';
 import ResponsiveAppBar from "../components/ResponsiveAppBar";
 import "./Dashboard.css";
 import "./Style.css";
-import { logout, getMessages, getMessagesByUsername } from "../firebase";
+import { logout, getMessages, getMessagesByUsername, getUsername } from "../firebase";
 import { useNavigate } from "react-router-dom";
 import DashboardFeedItem from "../components/DashboardFeedItem";
 import PostsTitle from "../components/PostsTitle";
 import DashboardSidebar from "../components/DashboardSidebar";
 import LoadingItems from "../components/LoadingItems";
+import AiAssistant from "../components/AiAssistant";
 
 const darkTheme = createTheme({
   palette: {
@@ -28,18 +29,21 @@ function Posts(){
 
     const navigate = useNavigate();
     const [ messages , setMessages ] = useState([])
-    
-    useEffect( () => {setMessages(getMessagesByUsername(username))} , [] )
+    const [ position , setPosition ] = useState( "Position-Center" )
+    const [ highlighted , setHighlighted ] = useState( false )
+    const [ textToProcess , setTextToProcess ] = useState("") 
+
+    useEffect( () => {setMessages(getMessagesByUsername(username))} , [username] )
 
     return <div className="Dashboard-Main-Container">
       <DashboardSidebar />
 
-      <div className="Dashboard-Feed-Container">
-        <PostsTitle title= {username+"'s posts"} />
+      <div className={"Dashboard-Feed-Container " + position}>
+        <PostsTitle pic={messages[0] ? messages[0][1]["profile_picture"] : ""} title= { ( username === getUsername() ? "Your" : (username+"'s") ) +" posts"} />
         {
           messages.length === 0 ? <LoadingItems /> :
           messages.map( (item,index) => {
-            return <DashboardFeedItem data={item} index={index} />
+            return <DashboardFeedItem key={""+index} data={item} index={index} highlighted={highlighted} setHighlighted={setHighlighted} setTextToProcess={setTextToProcess}/>
           } )
         }
         <div className="Seperator-150px"/>
@@ -48,6 +52,8 @@ function Posts(){
       <ThemeProvider theme={darkTheme}>
         <ResponsiveAppBar />
       </ThemeProvider>
+
+      <AiAssistant adjustPosition={setPosition} setHighlighted={setHighlighted} textToProcess={textToProcess} setTextToProcess={setTextToProcess}/>
     </div>
 }
 

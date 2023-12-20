@@ -11,6 +11,10 @@ function Home(){
         navigate("/loggingIn")
     }
 
+    const navigateToVideo = () => {
+        window.location.replace("https://youtu.be/gZPh4Wt0fhc");
+    }
+
     return <div className="Home-Main-Container">
     <div className="Home-Left-Container">
         <div className="Home-Left-Logo"/>
@@ -20,7 +24,7 @@ function Home(){
         <div className="Home-Right-Container">
         <h2 className="Text-Orange">Welcome to <b>Nexus</b>, a next-gen AI driven social network empowering the unbiased and diverse growth of the leaders of tomorrow.</h2>
         <div className="Spacer-Vertical-5vh"/>
-        <div className="Button Button-Light Width-60Pc Height-7pc Font-Size-125pc">Learn More</div>
+        <div className="Button Button-Light Width-60Pc Height-7pc Font-Size-125pc" onClick={navigateToVideo}>Learn More</div>
         <div className="Button Button-Dark Width-60Pc Height-7pc Font-Size-125pc" onClick={navigateToLogin}>Explore Nexus</div>
         </div>
     </div>

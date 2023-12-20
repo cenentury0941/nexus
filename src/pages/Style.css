@@ -3,7 +3,15 @@
 }
 
 .Text-Orange {
-    color: #D4145A;
+    color: #D4145A !important;
+}
+
+.Text-Green {
+    color: green !important;
+}
+
+.Text-Red {
+    color: red !important;
 }
 
 .Button {
@@ -120,6 +128,10 @@
     padding: 25px;
 }
 
+.Padding-Left-10px {
+    padding-left: 10px !important;
+}
+
 .Padding-Horizontal-25px {
     padding-left: 25px;
     padding-right: 25px;
@@ -183,4 +195,85 @@
 
 .Font-Color-Brown {
     color: #8b0c3a !important;
+}
+
+.Position-Center {
+    width: 69vw;
+    padding-right: 19vw;
+}
+
+.Position-Left {
+    width: 81.5vw;
+    padding-right: 31.5vw;
+}
+
+.Animate-Border-Glow {
+    animation-name: border-glow;
+    animation-duration: 2s;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+    transition-duration: 0.1s;
+    cursor: pointer;
+}
+
+.Animate-Border-Glow:hover {
+    background-color: rgb(251, 230, 230) !important;
+}
+
+.Animate-Border-Glow:active {
+    border: 3px solid black !important;
+    background-color: rgb(221, 219, 219) !important;
+}
+
+@keyframes border-glow {
+    0% { box-shadow: 0px 0px 10px red; border: 3px solid rgba(255, 0, 0, 0); transform: rotate(0deg); }
+    30% { transform: rotate(0deg); }
+    35% { transform: rotate(0.2deg); }
+    45% { transform: rotate(-0.2deg); }
+    55% { transform: rotate(0.2deg); }
+    65% { transform: rotate(-0.2deg); }
+    70% { transform: rotate(0deg); }
+    100% { box-shadow: 0px 0px 10px rgba(255, 0, 0, 0.243); border: 3px solid rgb(0, 0, 0); transform: rotate(0deg); }
+}
+
+.Click-Blocker {
+    display: flex;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+}
+
+.Position-Absolute {
+    position: absolute;
+}
+
+.Bottom-Center {
+    bottom: 0px;
+}
+
+.SubTitle {
+    display: flex;
+    align-items: start;
+    box-sizing: border-box;
+    padding-left: 50px;
+    padding-top: 15px;
+    padding-bottom: 0px;
+    font-size: 2vw;
+    color: wheat;
+    font-weight: 200;
+    margin-right: auto;
+    user-select: none;
+}
+
+.Text-Content {
+    text-align: start;
+    font-size: 1.2vw;
+    font-weight: 300;
+    padding-left: 3vh;
+    padding-right: 3vh;
+    padding-bottom: 2vh;
+    color: rgb(188, 39, 39);
 }

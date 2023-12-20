@@ -11,7 +11,7 @@ import SignalWifiStatusbar4BarIcon from '@mui/icons-material/SignalWifiStatusbar
 
 import { useNavigate } from "react-router-dom";
 
-function DashboardFeedItem(props){
+function CommentFeedItem(props){
 
     const navigate = useNavigate()
 
@@ -39,26 +39,19 @@ function DashboardFeedItem(props){
             <div className="Dashboard-Feed-UserName" onClick={ () => { username !== data["username"] && navigate("/posts?uname="+data["username"])} }>{data["username"]}</div>
             <div className="Dashboard-Feed-Date">{date.toDateString()}</div>
         </div>
-        <div className="Horizontal-Divider-1px Margin-0px Margin-Bottom-25px"/>
-        <div className="Dashboard-Feed-Row Padding-Horizontal-25px">
-            <div className="Dashboard-Feed-Title">{data["title"]}</div>
-        </div>
+        
         { data["img"] !== "image url" && <img className="DashboardFeed-Image"  src={data["img"]}/> }
         <div className="Dashboard-Feed-Row Padding-Horizontal-25px">
             <div className="Dashboard-Feed-Content">
                 { data["content"].split("\n").map( (item) => { return <p className="Dashboard-Feed-Block">{item}</p> } ) }
             </div>
         </div>
-        <div className="Horizontal-Divider-1px Margin-25px"/>
         <div className="DashboardFeed-ButtonRow">
         <IconButton type="button" sx={{ p: '10px', scale:"1.39", m: '5px' }} aria-label="search" color="warning" onClick={ () => {setLike(!like)} }>
             { like ? <FavoriteIcon /> : <FavoriteBorderIcon /> }
         </IconButton>
         <IconButton type="button" sx={{ p: '10px', scale:"1.39", m: '5px' }} aria-label="search" color="warning" onClick={ () => {setAmplify(!amplify)} }>
             { amplify ? <SignalWifiStatusbar4BarIcon /> : <SignalWifiStatusbarNullIcon /> }
-        </IconButton>
-        <IconButton type="button" sx={{ p: '10px', scale:"1.39", m: '5px' }} aria-label="search" color="warning" onClick={viewComments}>
-            <Diversity3Icon />
         </IconButton>
         </div>
         <div className="Seperator-25px"/>
@@ -68,4 +61,4 @@ function DashboardFeedItem(props){
     </div>
 }
 
-export default DashboardFeedItem
+export default CommentFeedItem

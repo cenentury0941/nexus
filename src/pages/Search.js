@@ -23,7 +23,7 @@ const darkTheme = createTheme({
   },
 });
 
-function Dashboard(){
+function Search(){
 
     const navigate = useNavigate();
     const [ messages , setMessages ] = useState([])
@@ -33,16 +33,17 @@ function Dashboard(){
 
     useEffect( () => {getMessages(setMessages)} , [] )
 
+    const queryParameters = new URLSearchParams(window.location.search)
+    const query = queryParameters.get("query")
+
     return <div className="Dashboard-Main-Container">
       <DashboardSidebar />
 
       <div className={"Dashboard-Feed-Container " + position}>
-        <DashboardTitle title="Your Feed" />
+        <DashboardTitle title="Search Results" />
         <SearchBox />
-        <DashboardPost />
-
         {
-          messages.map( (item,index) => {
+          messages.filter( (item) => { return item[1]["content"].search(query) !== -1 } ).map( (item,index) => {
             return <DashboardFeedItem key={""+index} data={item} index={index} highlighted={highlighted} setHighlighted={setHighlighted} setTextToProcess={setTextToProcess}/>
           } )
         }
@@ -57,4 +58,4 @@ function Dashboard(){
     </div>
 }
 
-export default Dashboard
+export default Search

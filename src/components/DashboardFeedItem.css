@@ -10,6 +10,7 @@
     background-color: white; 
     flex-shrink: 0;  
     user-select: none;
+    border: 3px solid rgba(255, 0, 0, 0) ;
 }
 
 .Dashboard-Feed-Row {
@@ -102,4 +103,13 @@
     padding-left: 20px;
     padding-right: 20px;
     height: fit-content;
+}
+
+.DashboardFeed-Image {
+    width: 90%;
+    align-self: center;
+    margin-top: 1vh;
+    margin-bottom: 1vh;
+    border: 2px solid orange;
+    border-radius: 10px;
 }

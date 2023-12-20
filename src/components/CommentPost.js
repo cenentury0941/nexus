@@ -4,7 +4,7 @@ import TextField from '@mui/material/TextField';
 import IconButton from '@mui/material/IconButton';
 import SendIcon from '@mui/icons-material/Send';
 import CollectionsIcon from '@mui/icons-material/Collections';
-import { getProfilePic, getUsername, postMessage, uploadImage } from "../firebase";
+import { getProfilePic, getUsername, postComment, postMessage, uploadImage } from "../firebase";
 import Snackbar from '@mui/material/Snackbar';
 import MuiAlert from '@mui/material/Alert';
 
@@ -12,21 +12,17 @@ const Alert = React.forwardRef(function Alert(props, ref) {
     return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
   });
 
-function DashboardPost(){
+function CommentPost(){
 
-    const [ title , setTitle ] = useState("")
+    const [ title , setTitle ] = useState("No Title")
     const [ content , setContent ] = useState("")
     const [open, setOpen] = React.useState(false);
     const [ imgUrl , setImgUrl ] = useState("")
     
+    const queryParameters = new URLSearchParams(window.location.search)
+    const id = queryParameters.get("id")
+
     const inputFile = useRef(null) 
-
-
-    const handleImageUpload = (event) =>
-    {
-        console.log( "Opening File" );
-        inputFile.current.click();
-    }
 
     const handleClose = (event, reason) => {
         if (reason === 'clickaway') {
@@ -41,14 +37,13 @@ function DashboardPost(){
 
     const post = () => {
 
-        if( title === "" || content === "" )
+        if( content === "" )
         {
             handleError()
             return
         }
 
-        postMessage(title , content , (imgUrl !== "" ? imgUrl : "image url") , "email@email.com" , getUsername() , getProfilePic() , "tag1,tag2,tag3")
-        setTitle("")
+        postComment(title , content , (imgUrl !== "" ? imgUrl : "image url") , "email@email.com" , getUsername() , getProfilePic() , "tag1,tag2,tag3", id )
         setContent("")
         setImgUrl("")
     }
@@ -56,10 +51,6 @@ function DashboardPost(){
     return <div className="DashboardPost-Container">
         <input type='file' id='file' onChange={ (event) => {uploadImage(event,setImgUrl)} } ref={inputFile} style={{display: 'none'}}/>
         <p className="DashboardPost-Title">What's on your mind?</p>
-        <TextField fullWidth label="Post Title" id="fullWidth" color="warning" variant="outlined" sx={{ color:"#D4145A", border:"0px solid black" }}
-        value={title}
-        onChange={ (target) => {setTitle(target.currentTarget.value)} }
-        />
         <TextField
           id="standard-multiline-static"
           label="Post Content"
@@ -72,8 +63,7 @@ function DashboardPost(){
         />
         { imgUrl !== "" && <img src={imgUrl} />}
         <div className="DashboardPost-ButtonRow">
-        <IconButton onClick={handleImageUpload} type="button" sx={{ p: '10px', scale:"1.39", m: '5px' }} aria-label="search" color="warning">
-            <CollectionsIcon />
+        <IconButton type="button" sx={{ p: '10px', scale:"1.39", m: '5px' }} aria-label="search">
         </IconButton>
         <IconButton type="button" sx={{ p: '10px', scale:"1.39", m: '5px' }} aria-label="search" color="warning" onClick={post}>
             <SendIcon />
@@ -87,4 +77,4 @@ function DashboardPost(){
     </div>
 }
 
-export default DashboardPost;
+export default CommentPost;

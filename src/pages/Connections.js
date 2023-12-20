@@ -3,7 +3,7 @@ import { ThemeProvider, createTheme } from '@mui/material/styles';
 import ResponsiveAppBar from "../components/ResponsiveAppBar";
 import "./Dashboard.css";
 import "./Style.css";
-import { logout, getMessages } from "../firebase";
+import { logout, getMessages, getConnections } from "../firebase";
 import { useNavigate } from "react-router-dom";
 import SearchBox from "../components/SearchBox";
 import DashboardTitle from "../components/DashboardTitle";
@@ -11,6 +11,7 @@ import DashboardPost from "../components/DashboardPost";
 import DashboardFeedItem from "../components/DashboardFeedItem";
 import DashboardSidebar from "../components/DashboardSidebar";
 import AiAssistant from "../components/AiAssistant";
+import ConnectionsItem from "../components/ConnectionsItem";
 
 const darkTheme = createTheme({
   palette: {
@@ -23,7 +24,7 @@ const darkTheme = createTheme({
   },
 });
 
-function Dashboard(){
+function Connections(){
 
     const navigate = useNavigate();
     const [ messages , setMessages ] = useState([])
@@ -31,19 +32,16 @@ function Dashboard(){
     const [ highlighted , setHighlighted ] = useState( false )
     const [ textToProcess , setTextToProcess ] = useState("") 
 
-    useEffect( () => {getMessages(setMessages)} , [] )
+    useEffect( () => { setMessages( getConnections() ) } , [] )
 
     return <div className="Dashboard-Main-Container">
       <DashboardSidebar />
 
       <div className={"Dashboard-Feed-Container " + position}>
-        <DashboardTitle title="Your Feed" />
-        <SearchBox />
-        <DashboardPost />
-
+        <DashboardTitle title="Your Connections" />
         {
           messages.map( (item,index) => {
-            return <DashboardFeedItem key={""+index} data={item} index={index} highlighted={highlighted} setHighlighted={setHighlighted} setTextToProcess={setTextToProcess}/>
+            return <ConnectionsItem key={""+index} data={item} index={index} highlighted={highlighted} setHighlighted={setHighlighted} setTextToProcess={setTextToProcess}/>
           } )
         }
         <div className="Seperator-150px"/>
@@ -53,8 +51,7 @@ function Dashboard(){
         <ResponsiveAppBar />
       </ThemeProvider>
 
-      <AiAssistant adjustPosition={setPosition} setHighlighted={setHighlighted} textToProcess={textToProcess} setTextToProcess={setTextToProcess}/>
     </div>
 }
 
-export default Dashboard
+export default Connections

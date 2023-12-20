@@ -19,6 +19,7 @@
     color: wheat;
     font-weight: 200;
     margin-right: auto;
+    user-select: none;
 }
 
 .Posts-Title-ProfilePic {
