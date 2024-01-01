@@ -1,4 +1,8 @@
+![Alt Text](https://example.com/path/to/your/image.png)
+
 # Nexus: Next-Gen AI-Driven Social Media Platform for Leaders
+
+## Video : https://www.youtube.com/watch?v=gZPh4Wt0fhc
 
 ## Inspiration
 The inspiration behind Nexus stems from the need for leaders to thrive in an interconnected world. Recognizing the challenges leaders face in navigating complexities, Nexus aims to provide a holistic solution by integrating AI and fostering a platform that encourages diverse perspectives.
