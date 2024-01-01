@@ -10,6 +10,8 @@ The inspiration behind Nexus stems from the need for leaders to thrive in an int
 ## What it does
 Nexus is a next-gen AI-driven social media platform designed exclusively for the leaders of tomorrow. It facilitates the sharing of ideas, ideals, and success stories that highlight the positive impact of embracing new perspectives, unbiased thought processes, and equitable ideals. The platform is centered around leadership qualities such as appreciation, empowerment, and constructive discussion.
 
+![Alt Text](https://raw.githubusercontent.com/cenentury0941/Pictures/main/02.png)
+
 ## How I built it
 Nexus is built using a robust technology stack:
 
