@@ -1,4 +1,4 @@
-![Alt Text](https://example.com/path/to/your/image.png)
+![Alt Text](https://raw.githubusercontent.com/cenentury0941/Pictures/main/01.png)
 
 # Nexus: Next-Gen AI-Driven Social Media Platform for Leaders
 
